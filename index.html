@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="EventHub — Agenda de eventos independientes: talleres, charlas, recitales, ferias, meetups tech, eventos gamer y actividades culturales en tu ciudad." />
+  <meta name="theme-color" content="#0a0a12" />
+  <title>EventHub — Agenda de Eventos Independientes</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title"       content="EventHub — Agenda de Eventos Independientes" />
+  <meta property="og:description" content="Descubrí talleres, charlas, recitales, ferias, meetups tech y más." />
+  <meta property="og:type"        content="website" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗓️</text></svg>" />
+</head>
+<body>
+
+  <!-- =====================================================
+       NAVIGATION
+       ===================================================== -->
+  <header role="banner">
+    <nav class="nav" id="main-nav" aria-label="Navegación principal">
+      <div class="container nav__inner">
+
+        <!-- Logo -->
+        <a href="#" class="nav__logo" id="logo-home" aria-label="EventHub — Inicio">
+          <span class="nav__logo-icon" aria-hidden="true">🗓️</span>
+          Event<span>Hub</span>
+        </a>
+
+        <!-- Links -->
+        <ul class="nav__links" id="nav-links" role="list">
+          <li>
+            <a href="#" class="nav__link active" id="nav-inicio"
+               data-page="page-inicio" aria-current="page">
+              <span class="nav__link-icon" aria-hidden="true">🏠</span>
+              Inicio
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav__link" id="nav-eventos" data-page="page-eventos">
+              <span class="nav__link-icon" aria-hidden="true">🎪</span>
+              Eventos
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav__link" id="nav-agenda" data-page="page-agenda">
+              <span class="nav__link-icon" aria-hidden="true">📌</span>
+              Mi Agenda
+              <span class="nav__badge" id="agenda-badge" aria-label="eventos guardados">0</span>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Hamburger -->
+        <button class="nav__hamburger" id="hamburger"
+                aria-expanded="false" aria-controls="nav-links"
+                aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+
+      </div>
+    </nav>
+  </header>
+
+  <!-- =====================================================
+       MAIN CONTENT
+       ===================================================== -->
+  <main id="main-content">
+
+    <!-- ============================
+         PAGE: INICIO
+         ============================ -->
+    <article class="page active" id="page-inicio" aria-labelledby="inicio-title">
+
+      <!-- Hero -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__bg" role="img" aria-label="Fondo artístico abstracto"></div>
+        <div class="hero__overlay" aria-hidden="true"></div>
+
+        <div class="container">
+          <div class="hero__content">
+            <p class="hero__eyebrow">
+              <span aria-hidden="true">✨</span>
+              Cultura · Comunidad · Eventos
+            </p>
+            <h1 class="hero__title" id="hero-title">
+              Tu agenda de<br>
+              <span class="hero__title-grad">eventos independientes</span>
+            </h1>
+            <p class="hero__desc">
+              Talleres, charlas, recitales, ferias, meetups tech, eventos gamer y actividades culturales.
+              Todo en un solo lugar, todo para vos.
+            </p>
+            <div class="hero__actions">
+              <a href="#" class="btn btn--primary" id="hero-cta-events" data-page="page-eventos">
+                <span aria-hidden="true">🎪</span>
+                Ver Eventos
+              </a>
+              <a href="#" class="btn btn--outline" id="hero-cta-agenda" data-page="page-agenda">
+                <span aria-hidden="true">📌</span>
+                Mi Agenda
+              </a>
+            </div>
+
+            <div class="hero__stats" aria-label="Estadísticas de la agenda">
+              <div class="hero__stat">
+                <span class="hero__stat-num" id="stat-total">0</span>
+                <span class="hero__stat-label">Eventos totales</span>
+              </div>
+              <div class="hero__stat">
+                <span class="hero__stat-num" id="stat-upcoming">0</span>
+                <span class="hero__stat-label">Próximos</span>
+              </div>
+              <div class="hero__stat">
+                <span class="hero__stat-num" id="stat-today">0</span>
+                <span class="hero__stat-label">Hoy</span>
+              </div>
+              <div class="hero__stat">
+                <span class="hero__stat-num" id="stat-free">0</span>
+                <span class="hero__stat-label">Entrada libre</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating preview cards -->
+        <div class="hero__float-cards" aria-hidden="true">
+          <div class="float-card" id="float-card-1">
+            <p class="float-card__cat"></p>
+            <p class="float-card__name"></p>
+            <p class="float-card__meta"></p>
+          </div>
+          <div class="float-card" id="float-card-2">
+            <p class="float-card__cat"></p>
+            <p class="float-card__name"></p>
+            <p class="float-card__meta"></p>
+          </div>
+          <div class="float-card" id="float-card-3">
+            <p class="float-card__cat"></p>
+            <p class="float-card__name"></p>
+            <p class="float-card__meta"></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Categories -->
+      <section class="categories-section" aria-labelledby="categories-title">
+        <div class="container">
+          <header class="section-header">
+            <h2 class="section-title" id="categories-title">Explorá por categoría</h2>
+            <p class="section-subtitle">Encontrá lo que más te apasiona</p>
+          </header>
+          <div class="categories-grid" id="categories-grid" role="list"
+               aria-label="Categorías de eventos">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Events -->
+      <section class="featured-section" aria-labelledby="featured-title">
+        <div class="container">
+          <header class="section-header">
+            <h2 class="section-title" id="featured-title">Próximos destacados</h2>
+            <p class="section-subtitle">No te los pierdas</p>
+          </header>
+          <div class="featured-grid" id="featured-grid" aria-label="Eventos destacados">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </section>
+
+    </article>
+
+    <!-- ============================
+         PAGE: EVENTOS
+         ============================ -->
+    <article class="page" id="page-eventos" aria-labelledby="eventos-page-title">
+      <div class="container">
+
+        <header class="eventos-header">
+          <h1 class="eventos-header__title" id="eventos-page-title">
+            <span aria-hidden="true">🎪</span> Todos los Eventos
+          </h1>
+          <p id="eventos-header-desc" style="color:#64748b;font-size:.95rem;">
+            Filtrá, explorá y sumá eventos a tu agenda personal.
+          </p>
+        </header>
+
+        <!-- Filters -->
+        <section aria-labelledby="filters-title">
+          <div class="filters-panel">
+            <div class="filters-panel__top">
+              <h2 class="filters-panel__title" id="filters-title">
+                <span aria-hidden="true">🔍</span> Filtros
+              </h2>
+              <button class="filters-panel__reset" id="reset-filters"
+                      aria-label="Restablecer todos los filtros">
+                Restablecer todo
+              </button>
+            </div>
+
+            <div class="filters-grid" role="group" aria-label="Opciones de filtrado">
+
+              <div class="filter-group">
+                <label class="filter-label" for="filter-search">Buscar</label>
+                <input class="filter-input" type="search" id="filter-search"
+                       placeholder="Nombre del evento…" autocomplete="off"
+                       aria-label="Buscar evento por nombre" />
+              </div>
+
+              <div class="filter-group">
+                <label class="filter-label" for="filter-estado">Estado</label>
+                <select class="filter-select" id="filter-estado" aria-label="Filtrar por estado">
+                  <option value="all">Todos los estados</option>
+                  <option value="future">Próximos</option>
+                  <option value="today">Hoy</option>
+                  <option value="past">Pasados</option>
+                </select>
+              </div>
+
+              <div class="filter-group">
+                <label class="filter-label" for="filter-precio">Precio</label>
+                <select class="filter-select" id="filter-precio" aria-label="Filtrar por precio">
+                  <option value="all">Cualquier precio</option>
+                  <option value="free">Entrada libre</option>
+                  <option value="paid">Con costo</option>
+                </select>
+              </div>
+
+              <div class="filter-group">
+                <label class="filter-label" for="filter-fecha">Fecha desde</label>
+                <input class="filter-input" type="date" id="filter-fecha"
+                       aria-label="Filtrar por fecha desde" />
+              </div>
+
+            </div>
+
+            <!-- Category chips -->
+            <div class="category-chips" id="category-chips" role="group"
+                 aria-label="Filtrar por categoría">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+        </section>
+
+        <!-- Results bar -->
+        <div class="results-bar" role="status" aria-live="polite">
+          <p class="results-count" id="results-count">
+            Mostrando <strong id="results-num">0</strong> eventos
+          </p>
+          <div class="sort-group">
+            <label class="sort-label" for="sort-select">Ordenar:</label>
+            <select class="filter-select" id="sort-select" aria-label="Ordenar eventos">
+              <option value="date-asc">Fecha (más próximos)</option>
+              <option value="date-desc">Fecha (más lejanos)</option>
+              <option value="price-asc">Precio (menor a mayor)</option>
+              <option value="price-desc">Precio (mayor a menor)</option>
+              <option value="name-asc">Nombre (A–Z)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Events Grid -->
+        <section aria-labelledby="events-grid-title">
+          <h2 class="sr-only" id="events-grid-title">Listado de eventos</h2>
+          <div class="events-grid" id="events-grid">
+            <!-- Populated by JS -->
+          </div>
+        </section>
+
+      </div>
+    </article>
+
+    <!-- ============================
+         PAGE: MI AGENDA
+         ============================ -->
+    <article class="page" id="page-agenda" aria-labelledby="agenda-page-title">
+      <div class="container">
+
+        <header class="agenda-header">
+          <div class="agenda-header__top">
+            <h1 class="section-title" id="agenda-page-title">
+              <span aria-hidden="true">📌</span> Mi Agenda Personal
+            </h1>
+            <button class="btn btn--outline" id="clear-agenda"
+                    aria-label="Limpiar todos los eventos guardados"
+                    style="font-size:.85rem;padding:.5rem 1rem;">
+              <span aria-hidden="true">🗑️</span> Limpiar agenda
+            </button>
+          </div>
+          <p style="color:#64748b;font-size:.9rem;margin-top:.5rem;">
+            Tus eventos guardados, organizados por estado.
+          </p>
+
+          <!-- Agenda stats -->
+          <div class="agenda-stats" id="agenda-stats" aria-label="Resumen de agenda">
+            <div class="agenda-stat">
+              <span class="agenda-stat__dot agenda-stat__dot--future" aria-hidden="true"></span>
+              <span class="agenda-stat__num" id="ag-stat-future">0</span>
+              <span class="agenda-stat__lbl">Próximos</span>
+            </div>
+            <div class="agenda-stat">
+              <span class="agenda-stat__dot agenda-stat__dot--today" aria-hidden="true"></span>
+              <span class="agenda-stat__num" id="ag-stat-today">0</span>
+              <span class="agenda-stat__lbl">Hoy</span>
+            </div>
+            <div class="agenda-stat">
+              <span class="agenda-stat__dot agenda-stat__dot--past" aria-hidden="true"></span>
+              <span class="agenda-stat__num" id="ag-stat-past">0</span>
+              <span class="agenda-stat__lbl">Pasados</span>
+            </div>
+          </div>
+        </header>
+
+        <!-- Timeline -->
+        <section aria-labelledby="timeline-title">
+          <h2 class="sr-only" id="timeline-title">Cronología de eventos guardados</h2>
+          <div class="timeline" id="timeline-container">
+            <!-- Populated by JS -->
+          </div>
+        </section>
+
+      </div>
+    </article>
+
+  </main><!-- /main -->
+
+  <!-- =====================================================
+       EVENT DETAIL MODAL
+       ===================================================== -->
+  <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true"
+       aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal" id="modal">
+      <header class="modal__header">
+        <h2 class="modal__title" id="modal-title"></h2>
+        <button class="modal__close" id="modal-close" aria-label="Cerrar detalle del evento">✕</button>
+      </header>
+      <div class="modal__body" id="modal-body">
+        <!-- Populated by JS -->
+      </div>
+      <footer class="modal__footer" id="modal-footer">
+        <!-- Populated by JS -->
+      </footer>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       TOAST CONTAINER
+       ===================================================== -->
+  <div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="false">
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
